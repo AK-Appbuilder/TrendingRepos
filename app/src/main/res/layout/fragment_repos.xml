@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -12,7 +13,7 @@
 
         <variable
             name="adapter"
-            type="com.airlift.shop.rewards.RewardsTransactionAdapter" />
+            type="com.boonapps.repos.ui.ReposAdapter" />
 
     </data>
 
@@ -24,27 +25,28 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:adapterData="@{viewmodel.repos}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heading"
             app:setAdapter="@{adapter}"
-            app:adapterData="@{viewmodel.vouchers}"
             tools:itemCount="3"
-            tools:listitem="@layout/item_rewards_transaction" />
+            tools:listitem="@layout/items_repos" />
 
         <TextView
             android:id="@+id/empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/empty_transaction_msg"
-            app:visible_flag="@{viewmodel.isNoTransactions() &amp;&amp; adapter.isEmpty()}" />
+            android:text="No repo found"
+            app:visibleFlag="@{viewmodel.empty}" />
 
         <ProgressBar
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:visibleFlag="@{viewmodel.loading}"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 </layout>

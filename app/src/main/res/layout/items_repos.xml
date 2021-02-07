@@ -5,7 +5,9 @@
 
     <data>
 
-        <variable name="repo" type="com.boonapps.repos.models.Repo" />
+        <variable
+            name="repo"
+            type="com.boonapps.repos.models.Repo" />
 
     </data>
 
@@ -19,16 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_avatar"
-            app:loadImage="@{repo.Owner.url}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{repo.Owner.url}" />
 
         <TextView
             android:id="@+id/owner"
             android:layout_width="0dp"
-            android:text="@{repo.Owner.login}"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:text="@{repo.Owner.login}"
             app:layout_constraintStart_toEndOf="@id/avatar"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Owner" />
@@ -36,8 +38,8 @@
         <TextView
             android:id="@+id/repoName"
             android:layout_width="0dp"
-            android:text="@{repo.name}"
             android:layout_height="wrap_content"
+            android:text="@{repo.name}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/owner"
             app:layout_constraintTop_toBottomOf="@id/owner"
@@ -68,5 +70,6 @@
             app:layout_constraintTop_toBottomOf="@id/repoName"
             tools:text="115" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

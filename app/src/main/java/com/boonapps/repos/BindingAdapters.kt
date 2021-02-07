@@ -1,6 +1,7 @@
 package com.boonapps.repos
 
 import android.net.Uri
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
@@ -29,5 +30,15 @@ fun ImageView.loadImageUri(url: String?){
         Glide.with(context)
             .load(it)
             .into(this)
+    }
+}
+
+
+@BindingAdapter("visibleFlag")
+fun View.visibleFlag(flag: Boolean) {
+    if (flag) {
+        this.show()
+    } else {
+        this.gone()
     }
 }
