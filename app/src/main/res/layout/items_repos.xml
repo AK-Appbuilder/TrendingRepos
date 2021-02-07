@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable name="repo" type="com.boonapps.repos.models.Repo" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_avatar"
+            app:loadImage="@{repo.Owner.url}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/owner"
+            android:layout_width="0dp"
+            android:text="@{repo.Owner.login}"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Owner" />
+
+        <TextView
+            android:id="@+id/repoName"
+            android:layout_width="0dp"
+            android:text="@{repo.name}"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/owner"
+            app:layout_constraintTop_toBottomOf="@id/owner"
+            tools:text="Repo" />
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_baseline_pending_24"
+            android:drawablePadding="8dp"
+            android:drawableTint="@android:color/holo_blue_dark"
+            app:layout_constraintStart_toStartOf="@id/owner"
+            app:layout_constraintTop_toBottomOf="@id/repoName"
+            tools:text="Python" />
+
+        <TextView
+            android:id="@+id/stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="8dp"
+            android:drawableTint="@android:color/holo_red_dark"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:layout_constraintStart_toEndOf="@id/language"
+            app:layout_constraintTop_toBottomOf="@id/repoName"
+            tools:text="115" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

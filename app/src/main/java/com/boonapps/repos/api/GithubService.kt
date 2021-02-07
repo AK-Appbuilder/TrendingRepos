@@ -14,7 +14,7 @@ interface GithubService {
     @GET("search/repositories")
     suspend fun getRepo(
         @Query("q") query: String = "language=+sort:stars"
-    ): LiveData<Result<Repo>>
+    ): Repo
 
 
 }
