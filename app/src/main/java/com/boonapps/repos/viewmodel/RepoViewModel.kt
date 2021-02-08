@@ -23,41 +23,47 @@ class RepoViewModel(private val repoRepository: RepoRepository) : ViewModel() {
     val loading: LiveData<Boolean> = _loading
 
     private val _empty = MutableLiveData<Boolean>()
-    val empty : LiveData<Boolean> = _empty
+    val empty: LiveData<Boolean> = _empty
 
-    private val _error = MutableLiveData<Event<Boolean>>()
-    val error: LiveData<Event<Boolean>> = _error
+    private val _error = MutableLiveData<Boolean>(false)
+    val error: LiveData<Boolean> = _error
+
+
+    fun retry() {
+        getRepos()
+    }
 
     fun getRepos() {
+
         viewModelScope.launch {
             _loading.value = true
+            _error.value = false
 
-            repoRepository.loadRepos().collectLatest { result ->
+            val result = repoRepository.loadRepos()
 
+            _loading.value = false
 
-                when (result) {
+            when (result) {
 
-                    is Result.Success -> {
-                       _repos.value = result.data
-                        _loading.value = false
-                    }
+                is Result.Success -> {
+                    _repos.value = result.data
+                    _loading.value = false
+                }
 
-                    is Result.Empty -> {
-                      _empty.value = true
-                        _loading.value = false
-                    }
+                is Result.Empty -> {
+                    _empty.value = true
+                    _loading.value = false
+                }
 
-                    is Result.Error -> {
-                        _message.value = Event(result.exception.message!!)
-                        _error.value = Event(true)
-                    }
+                is Result.Error -> {
+                    _message.value = Event(result.exception.message!!)
+                    _error.value = true
+                }
 
-                    else -> {
+                else -> {
 
-                    }
                 }
             }
         }
     }
-
 }

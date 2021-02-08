@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.boonapps.repos.viewmodel.RepoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/unit_4x"
+        app:visibleFlag="@{viewmodel.error}">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/retry" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unit_3x"
+            android:gravity="center_horizontal"
+            android:text="@string/something_went_wrong"
+            android:textSize="@dimen/unit_18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unit_1x"
+            android:gravity="center_horizontal"
+            android:text="@string/signals"
+            android:textSize="@dimen/unit_16sp" />
+
+        <TextView
+            style="@style/RetryButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unit_4x"
+            android:onClick="@{() -> viewmodel.retry()}"
+            android:text="@string/retry_label" />
+
+    </LinearLayout>
+
+</layout>

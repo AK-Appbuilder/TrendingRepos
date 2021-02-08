@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Trending</string>
+    <string name="something_went_wrong">Something went wrong..</string>
+    <string name="signals">An align is probably blocking ur signals</string>
+    <string name="retry_label">Retry</string>
 
 </resources>

@@ -13,6 +13,9 @@ dependencies {
 
     implementation "com.squareup.okhttp3:logging-interceptor:3.6.0"
 
+    def lottieVersion = "3.6.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'

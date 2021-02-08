@@ -42,11 +42,16 @@
             android:text="No repo found"
             app:visibleFlag="@{viewmodel.empty}" />
 
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:visibleFlag="@{viewmodel.loading}"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            app:visibleFlag="@{viewmodel.loading}" />
+
+        <include
+            layout="@layout/retry_layout"
+            app:viewmodel="@{viewmodel}" />
 
     </FrameLayout>
 </layout>
