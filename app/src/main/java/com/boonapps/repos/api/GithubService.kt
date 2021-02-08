@@ -9,12 +9,10 @@ import retrofit2.http.Query
 interface GithubService {
 
 
-    //https://api.github.com/search/repositories?q=language=+sort:stars
-
     @GET("search/repositories")
     suspend fun getRepo(
         @Query("q") query: String = "language=+sort:stars"
-    ): List<Repo>
+    ): GithubApiResponse
 
 
 }

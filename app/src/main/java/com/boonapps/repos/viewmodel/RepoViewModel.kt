@@ -33,16 +33,18 @@ class RepoViewModel(private val repoRepository: RepoRepository) : ViewModel() {
             _loading.value = true
 
             repoRepository.loadRepos().collectLatest { result ->
-                _loading.value = false
+
 
                 when (result) {
 
                     is Result.Success -> {
                        _repos.value = result.data
+                        _loading.value = false
                     }
 
                     is Result.Empty -> {
                       _empty.value = true
+                        _loading.value = false
                     }
 
                     is Result.Error -> {

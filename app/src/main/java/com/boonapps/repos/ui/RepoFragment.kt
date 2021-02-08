@@ -16,7 +16,6 @@ class RepoFragment : Fragment() {
 
     private lateinit var binding: FragmentReposBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,5 +32,4 @@ class RepoFragment : Fragment() {
 
         return binding.root
     }
-
 }

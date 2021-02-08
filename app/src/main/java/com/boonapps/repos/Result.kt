@@ -29,7 +29,7 @@ suspend fun <T> callApi(apiCall: suspend () -> T): Result<T> {
             Result.Success(result)
         }
     } catch (throwable: Throwable) {
-        error(throwable)
+        Result.Error(throwable as Exception)
     }
 }
 

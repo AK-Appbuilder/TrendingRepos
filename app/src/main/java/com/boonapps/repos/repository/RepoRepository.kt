@@ -11,6 +11,6 @@ class RepoRepository(private val githubService: GithubService) {
 
     fun loadRepos(): Flow<Result<List<Repo>>> = flow {
         emit(Result.Loading)
-        emit(callApi { githubService.getRepo() })
+        emit(callApi { githubService.getRepo().items })
     }
 }

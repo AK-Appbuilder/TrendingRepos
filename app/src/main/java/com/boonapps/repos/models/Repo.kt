@@ -1,6 +1,7 @@
 package com.boonapps.repos.models
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.security.acl.Owner
 
 data class Repo(
@@ -11,21 +12,19 @@ data class Repo(
     val fullName: String,
     @Json(name = "description")
     val description: String?,
-    @Json(name= "owner")
+    @Json(name = "owner")
     val owner: Owner,
-    @Json(name = "stargazers_count")
-    val stars: Int,
+    val stargazers_count: Long,
     val language: String
 ) {
+
 
     data class Owner(
         @Json(name = "login")
         val login: String,
-        @Json(name = "url")
-        val url: String?
+        val avatar_url: String?
     )
 
-    companion object {
-        const val UNKNOWN_ID = -1
-    }
+    fun getRatings() = stargazers_count.toString()
+
 }

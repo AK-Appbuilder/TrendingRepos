@@ -22,7 +22,7 @@ open class ViewModelFactory constructor(
         handle: SavedStateHandle
     ) = with(modelClass) {
         when {
-            isAssignableFrom(Repo::class.java) ->
+            isAssignableFrom(RepoViewModel::class.java) ->
                 RepoViewModel(AppModule.provideRepoRepository())
 
             else ->
