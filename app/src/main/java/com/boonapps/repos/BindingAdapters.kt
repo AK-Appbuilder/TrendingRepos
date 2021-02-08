@@ -35,6 +35,7 @@ fun ImageView.loadImageUri(url: String?){
     url?.let {
         Glide.with(context)
             .load(it)
+            .circleCrop()
             .placeholder(R.drawable.ic_avatar)
             .error(R.drawable.ic_avatar)
             .into(this)
