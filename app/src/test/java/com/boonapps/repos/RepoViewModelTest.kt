@@ -7,13 +7,13 @@ import com.boonapps.repos.models.Repo
 import com.boonapps.repos.repository.RepoRepository
 import com.boonapps.repos.viewmodel.RepoViewModel
 import com.google.common.truth.Truth
-import org.amshove.kluent.mock
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
+import org.mockito.MockitoAnnotations
 import java.lang.RuntimeException
 
 class RepoViewModelTest {
@@ -24,7 +24,8 @@ class RepoViewModelTest {
     @get:Rule
     var coroutineRule = CoroutineTestRule()
 
-    private val githubService: GithubService = mock(GithubService::class)
+    @Mock
+    private lateinit var githubService: GithubService
 
     private lateinit var repoRepository: RepoRepository
     private lateinit var repoViewModel: RepoViewModel
@@ -32,7 +33,7 @@ class RepoViewModelTest {
 
     @Before
     fun setup() {
-
+        MockitoAnnotations.initMocks(this)
         repoRepository =
             RepoRepository(githubService, coroutineRule.testDispatcher)
         repoViewModel = RepoViewModel(repoRepository)

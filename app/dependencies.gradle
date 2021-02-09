@@ -26,7 +26,8 @@ dependencies {
 
 
     testImplementation 'org.mockito:mockito-inline:3.0.0'
-    testImplementation 'org.amshove.kluent:kluent:1.51'
+
+    testImplementation 'org.mockito:mockito-inline:2.8.47'
 
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
