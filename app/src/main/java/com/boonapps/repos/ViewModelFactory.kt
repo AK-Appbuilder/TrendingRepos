@@ -1,14 +1,10 @@
-package com.boonapps.repos.api
-
-
+package com.boonapps.repos
 
 import android.os.Bundle
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
-import com.boonapps.repos.AppModule
-import com.boonapps.repos.models.Repo
 import com.boonapps.repos.viewmodel.RepoViewModel
 
 open class ViewModelFactory constructor(
@@ -23,7 +19,7 @@ open class ViewModelFactory constructor(
     ) = with(modelClass) {
         when {
             isAssignableFrom(RepoViewModel::class.java) ->
-                RepoViewModel(AppModule.provideRepoRepository())
+                RepoViewModel(DependenciesProvider.provideRepoRepository())
 
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

@@ -1,4 +1,4 @@
-package com.boonapps.repos
+package com.boonapps.repos.interceptors
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.boonapps.repos.App.Companion.context
+import com.boonapps.repos.R
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.boonapps.repos.Result
+import com.boonapps.repos.models.Result
 import com.boonapps.repos.models.Repo
 import com.boonapps.repos.repository.RepoRepository
 import kotlinx.coroutines.flow.collectLatest

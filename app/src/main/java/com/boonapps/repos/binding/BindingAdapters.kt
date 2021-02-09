@@ -1,4 +1,4 @@
-package com.boonapps.repos
+package com.boonapps.repos.binding
 
 import android.view.View
 import android.widget.ImageView
@@ -6,6 +6,11 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.boonapps.repos.R
+import com.boonapps.repos.extensions.gone
+import com.boonapps.repos.extensions.show
+import com.boonapps.repos.models.Result
+import com.boonapps.repos.models.successOr
 import com.bumptech.glide.Glide
 
 

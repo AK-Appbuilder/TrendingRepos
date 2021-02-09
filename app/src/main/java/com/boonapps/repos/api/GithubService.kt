@@ -9,5 +9,4 @@ interface GithubService {
     suspend fun getRepo(
         @Query("q") query: String = "language=+sort:stars"
     ): GithubApiResponse
-
 }

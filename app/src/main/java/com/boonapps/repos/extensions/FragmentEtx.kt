@@ -1,9 +1,8 @@
-package com.boonapps.repos
+package com.boonapps.repos.extensions
 
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import com.boonapps.repos.api.ViewModelFactory
+import com.boonapps.repos.ViewModelFactory
 
 fun Fragment.getViewModelFactory(): ViewModelFactory {
     return ViewModelFactory(this)

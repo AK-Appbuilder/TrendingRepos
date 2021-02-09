@@ -4,6 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.boonapps.repos.api.GithubApiResponse
 import com.boonapps.repos.api.GithubService
 import com.boonapps.repos.models.Repo
+import com.boonapps.repos.models.Result
+import com.boonapps.repos.models.data
 import com.boonapps.repos.repository.RepoRepository
 import com.boonapps.repos.viewmodel.RepoViewModel
 import com.google.common.truth.Truth

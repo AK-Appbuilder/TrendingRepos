@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.boonapps.repos.databinding.FragmentReposBinding
-import com.boonapps.repos.getViewModelFactory
+import com.boonapps.repos.extensions.getViewModelFactory
 import com.boonapps.repos.viewmodel.RepoViewModel
 
 class RepoFragment : Fragment() {

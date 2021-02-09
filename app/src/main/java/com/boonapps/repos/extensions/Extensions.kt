@@ -1,4 +1,4 @@
-package com.boonapps.repos
+package com.boonapps.repos.extensions
 
 import android.view.View
 

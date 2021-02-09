@@ -1,8 +1,8 @@
 package com.boonapps.repos.repository
 
-import com.boonapps.repos.Result
+import com.boonapps.repos.models.Result
 import com.boonapps.repos.api.GithubService
-import com.boonapps.repos.callApi
+import com.boonapps.repos.models.callApi
 import com.boonapps.repos.models.Repo
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
