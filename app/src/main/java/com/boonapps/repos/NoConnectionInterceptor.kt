@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.boonapps.repos.App.Companion.context
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -78,12 +79,12 @@ class NoConnectionInterceptor(private val context: Context) : Interceptor {
 class NoConnectivityException : IOException() {
     override val message: String
         get() =
-            "No network available, please check your WiFi or Data connection"
+            context.getString(R.string.no_network_mesg)
 }
 
 class NoInternetException() : IOException() {
     override val message: String
         get() =
-            "No internet available, please check your connected WIFi or Data"
+            context.getString(R.string.no_internet_msg)
 }
 

@@ -7,6 +7,8 @@
 
         <import type="android.view.View" />
 
+        <import type="com.boonapps.repos.Result"/>
+
         <variable
             name="viewmodel"
             type="com.boonapps.repos.viewmodel.RepoViewModel" />
@@ -25,11 +27,11 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:adapterData="@{viewmodel.repos}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heading"
+            app:adapterData="@{viewmodel.result}"
             app:setAdapter="@{adapter}"
             tools:itemCount="3"
             tools:listitem="@layout/items_repos" />
@@ -40,14 +42,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="No repo found"
-            app:visibleFlag="@{viewmodel.empty}" />
+            app:visibleFlag="@{viewmodel.result instanceof Result.Empty}" />
 
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:visibleFlag="@{viewmodel.loading}" />
+            app:visibleFlag="@{viewmodel.result instanceof Result.Loading}" />
 
         <include
             layout="@layout/retry_layout"

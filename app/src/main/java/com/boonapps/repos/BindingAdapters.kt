@@ -10,10 +10,10 @@ import com.bumptech.glide.Glide
 
 
 @BindingAdapter("adapterData")
-fun <T> RecyclerView.bindDataSet(data: List<T>?) {
+fun <T> RecyclerView.bindDataSet(result: Result<List<T>>?) {
     adapter?.let {
         val adapter = adapter as ListAdapter<T, in RecyclerView.ViewHolder>
-        adapter.submitList(data)
+        adapter.submitList(result?.successOr(mutableListOf()))
     }
 }
 

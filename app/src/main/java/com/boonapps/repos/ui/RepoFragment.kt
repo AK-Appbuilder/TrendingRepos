@@ -28,7 +28,7 @@ class RepoFragment : Fragment() {
             lifecycleOwner = this@RepoFragment.viewLifecycleOwner
         }
 
-        viewModel.getRepos()
+        viewModel.loadRepos()
 
         return binding.root
     }

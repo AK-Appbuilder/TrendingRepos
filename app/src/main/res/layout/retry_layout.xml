@@ -6,6 +6,8 @@
 
         <import type="android.view.View" />
 
+        <import type="com.boonapps.repos.Result"/>
+
         <variable
             name="viewmodel"
             type="com.boonapps.repos.viewmodel.RepoViewModel" />
@@ -16,7 +18,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/unit_4x"
-        app:visibleFlag="@{viewmodel.error}">
+        app:visibleFlag="@{viewmodel.result instanceof Result.Error }">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
