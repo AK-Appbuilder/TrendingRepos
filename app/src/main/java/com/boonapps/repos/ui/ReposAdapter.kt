@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.boonapps.repos.databinding.ItemsReposBinding
+import com.boonapps.repos.databinding.ItemRepoBinding
 import com.boonapps.repos.models.Repo
 
 class ReposAdapter : ListAdapter<Repo, ReposAdapter.ViewHolder>(VoucherDiffCallback()) {
@@ -20,7 +20,7 @@ class ReposAdapter : ListAdapter<Repo, ReposAdapter.ViewHolder>(VoucherDiffCallb
     }
 
     class ViewHolder private constructor(
-        private val binding: ItemsReposBinding
+        private val binding: ItemRepoBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Repo) {
@@ -31,7 +31,7 @@ class ReposAdapter : ListAdapter<Repo, ReposAdapter.ViewHolder>(VoucherDiffCallb
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemsReposBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemRepoBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
             }

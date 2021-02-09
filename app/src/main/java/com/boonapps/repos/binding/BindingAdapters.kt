@@ -12,6 +12,7 @@ import com.boonapps.repos.extensions.show
 import com.boonapps.repos.models.Result
 import com.boonapps.repos.models.successOr
 import com.bumptech.glide.Glide
+import com.facebook.shimmer.ShimmerFrameLayout
 
 
 @BindingAdapter("adapterData")
@@ -28,7 +29,7 @@ fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>?) {
         this.adapter = adapter
         this.addItemDecoration(
             DividerItemDecoration(
-                this.getContext(),
+                this.context,
                 DividerItemDecoration.VERTICAL
             )
         )
@@ -54,5 +55,15 @@ fun View.visibleFlag(flag: Boolean) {
         this.show()
     } else {
         this.gone()
+    }
+}
+
+
+@BindingAdapter("shimmerAnimation")
+fun ShimmerFrameLayout.setAnimation(flag: Boolean){
+    if (flag) {
+        this.startShimmer()
+    } else {
+        this.stopShimmer()
     }
 }

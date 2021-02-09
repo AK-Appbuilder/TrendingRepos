@@ -7,7 +7,7 @@
 
         <import type="android.view.View" />
 
-        <import type="com.boonapps.repos.models.Result"/>
+        <import type="com.boonapps.repos.models.Result" />
 
         <variable
             name="viewmodel"
@@ -27,33 +27,33 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:adapterData="@{viewmodel.result}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heading"
-            app:adapterData="@{viewmodel.result}"
             app:setAdapter="@{adapter}"
             tools:itemCount="3"
-            tools:listitem="@layout/items_repos" />
+            tools:listitem="@layout/item_repo" />
 
         <TextView
             android:id="@+id/empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="No repo found"
-            app:visibleFlag="@{viewmodel.result instanceof Result.Empty}" />
+            android:text="@string/empty_msg"
+            app:visibleFlag="@{viewmodel.result instanceof Result.Empty}"
+            tools:visibility="gone" />
 
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:visibleFlag="@{viewmodel.result instanceof Result.Loading}" />
+        <include
+            layout="@layout/layout_shimmer_loading"
+            app:viewmodel="@{viewmodel}"
+            tools:visibility="gone" />
 
         <include
             layout="@layout/retry_layout"
-            app:viewmodel="@{viewmodel}" />
+            app:viewmodel="@{viewmodel}"
+            tools:visibility="gone" />
 
     </FrameLayout>
 </layout>

@@ -11,4 +11,6 @@
     <color name="rating_color">#FFDF00</color>
     <color name="blue">#0073cf</color>
     <color name="green">#4ab448</color>
+
+    <color name="shimmer_grey">#dddddd</color>
 </resources>

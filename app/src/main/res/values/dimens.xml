@@ -37,4 +37,9 @@
     <dimen name="unit_16sp">16sp</dimen>
     <dimen name="unit_18sp">18sp</dimen>
 
+    <dimen name="activityPadding">16dp</dimen>
+    <dimen name="placeholderImage">50dp</dimen>
+    <dimen name="shimmer_line_height">12dp</dimen>
+    <dimen name="shimmer_line_length">100dp</dimen>
+
 </resources>

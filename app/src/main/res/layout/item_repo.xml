@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/unit_1x"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:loadImage="@{repo.Owner.avatar_url}"
+            app:loadImage="@{repo.Owner.avatarUrl}"
             tools:src="@drawable/ic_avatar" />
 
         <TextView
@@ -54,11 +54,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/unit_2x"
             android:drawablePadding="@dimen/unit_1x"
-            app:drawableStartCompat="@drawable/circle_drawable"
             android:text="@{repo.language}"
-            app:visibleFlag="@{repo.language != null}"
+            app:drawableStartCompat="@drawable/circle_drawable"
             app:layout_constraintStart_toStartOf="@id/owner"
             app:layout_constraintTop_toBottomOf="@id/repoName"
+            app:visibleFlag="@{repo.language != null}"
             tools:text="Python" />
 
         <TextView
@@ -69,7 +69,7 @@
             android:layout_marginTop="@dimen/unit_2x"
             android:drawablePadding="@dimen/unit_1x"
             android:drawableTint="@color/rating_color"
-            android:text="@{repo.ratings}"
+            android:text="@{repo.stars}"
             app:drawableStartCompat="@drawable/ic_star"
             app:layout_constraintStart_toEndOf="@id/language"
             app:layout_constraintTop_toBottomOf="@id/repoName"
