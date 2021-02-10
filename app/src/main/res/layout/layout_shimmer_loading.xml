@@ -19,8 +19,7 @@
         app:shimmerAnimation="@{viewmodel.result instanceof Result.Loading}"
         android:layout_gravity="center"
         android:orientation="vertical"
-        app:duration="700"
-        >
+        app:duration="700">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Trending</string>
     <string name="something_went_wrong">Something went wrong..</string>
-    <string name="signals">An alien is probably blocking ur signals</string>
+    <string name="signals_label">An alien is probably blocking ur signals</string>
     <string name="retry_label">Retry</string>
     <string name="empty_msg">No repo found</string>
-    <string name="no_network_mesg">No network available, please check your WiFi or Data connection</string>
+    <string name="no_network_msg">No network available, please check your WiFi or Data connection</string>
     <string name="no_internet_msg">No internet available, please check your connected WIFi or Data</string>
     <string name="refresh_label">Refresh</string>
 

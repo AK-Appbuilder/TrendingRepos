@@ -80,7 +80,7 @@ class NoConnectionInterceptor(private val context: Context) : Interceptor {
 class NoConnectivityException : IOException() {
     override val message: String
         get() =
-            context.getString(R.string.no_network_mesg)
+            context.getString(R.string.no_network_msg)
 }
 
 class NoInternetException() : IOException() {

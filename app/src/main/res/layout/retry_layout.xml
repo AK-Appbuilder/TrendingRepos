@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/retry" />
+            app:lottie_rawRes="@raw/retry_animation" />
 
         <TextView
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/unit_1x"
             android:gravity="center_horizontal"
-            android:text="@string/signals"
+            android:text="@string/signals_label"
             android:textSize="@dimen/unit_16sp" />
 
         <TextView

@@ -17,7 +17,6 @@ sealed class Result<out R> {
     }
 }
 
-
 suspend fun <T> callApi(apiCall: suspend () -> T): Result<T> {
     return try {
         val result = apiCall.invoke()
@@ -30,8 +29,6 @@ suspend fun <T> callApi(apiCall: suspend () -> T): Result<T> {
         Result.Error(throwable as Exception)
     }
 }
-
-
 
 fun <T> Result<T>.successOr(fallback: T): T {
     return (this as? Result.Success<T>)?.data ?: fallback

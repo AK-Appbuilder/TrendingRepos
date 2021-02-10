@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.boonapps.repos"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

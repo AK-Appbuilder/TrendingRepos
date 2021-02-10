@@ -48,7 +48,6 @@ fun ImageView.loadImageUri(url: String?){
     }
 }
 
-
 @BindingAdapter("visibleFlag")
 fun View.visibleFlag(flag: Boolean) {
     if (flag) {
@@ -57,7 +56,6 @@ fun View.visibleFlag(flag: Boolean) {
         this.gone()
     }
 }
-
 
 @BindingAdapter("shimmerAnimation")
 fun ShimmerFrameLayout.setAnimation(flag: Boolean){
