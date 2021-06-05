@@ -34,6 +34,10 @@ fun <T> Result<T>.successOr(fallback: T): T {
     return (this as? Result.Success<T>)?.data ?: fallback
 }
 
+fun <T> Result<T>.succeeded(): Boolean  {
+    return this is Result.Success
+}
+
 val <T> Result<T>.data: T?
     get() = (this as? Result.Success)?.data
 

@@ -1,9 +1,8 @@
 package com.boonapps.repos.repository
 
-import com.boonapps.repos.models.Result
 import com.boonapps.repos.api.GithubService
-import com.boonapps.repos.models.callApi
-import com.boonapps.repos.models.Repo
+import com.boonapps.repos.db.RepoDao
+import com.boonapps.repos.models.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -12,15 +11,24 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class RepoRepository(
-    private val githubService: GithubService,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+        private val githubService: GithubService,
+        private val repoDao: RepoDao,
+        private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-     @ExperimentalCoroutinesApi
-     fun loadRepos(): Flow<Result<List<Repo>>> = flow {
+    @ExperimentalCoroutinesApi
+    fun loadRepos(): Flow<Result<List<Repo>>> = flow {
 
-         emit(Result.Loading)
-         emit(callApi { githubService.getRepo().items })
+        emit(Result.Loading)
+        val networkResult = callApi { githubService.getRepo().items }
+
+        if (networkResult.succeeded()) {
+            networkResult.data?.let { repoDao.insertAll(it) }
+            emit(networkResult)
+        } else {
+            val dbResult = repoDao.getAll()
+            emit(Result.Success(dbResult))
+        }
 
     }.flowOn(dispatcher)
 

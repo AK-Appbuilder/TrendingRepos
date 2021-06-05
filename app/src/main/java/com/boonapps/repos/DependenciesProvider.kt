@@ -1,6 +1,9 @@
 package com.boonapps.repos
 
+import androidx.room.Room
 import com.boonapps.repos.api.GithubService
+import com.boonapps.repos.db.AppDatabase
+import com.boonapps.repos.db.RepoDao
 import com.boonapps.repos.interceptors.NoConnectionInterceptor
 import com.boonapps.repos.repository.RepoRepository
 import okhttp3.OkHttpClient
@@ -40,6 +43,19 @@ object DependenciesProvider {
     }
 
     fun provideRepoRepository(): RepoRepository {
-        return RepoRepository(provideGithubService())
+        return RepoRepository(provideGithubService(), provideRepoDao())
+    }
+
+    private fun provideDbInstance(): AppDatabase {
+        val db = Room.databaseBuilder(
+            App.context,
+            AppDatabase::class.java, "database-name"
+        ).build()
+
+        return db
+    }
+
+    private fun provideRepoDao(): RepoDao {
+        return provideDbInstance().repoDao()
     }
 }

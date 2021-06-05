@@ -43,4 +43,5 @@ ext {
     constraintVersion = '2.0.4'
     junitVersion = '4.12'
     loggingIntercepterVersion = '3.6.0'
+    room_version = "2.2.6"
 }
