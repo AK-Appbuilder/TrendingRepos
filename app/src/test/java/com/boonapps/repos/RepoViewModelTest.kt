@@ -3,6 +3,7 @@ package com.boonapps.repos
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.boonapps.repos.api.GithubApiResponse
 import com.boonapps.repos.api.GithubService
+import com.boonapps.repos.db.RepoDao
 import com.boonapps.repos.models.Repo
 import com.boonapps.repos.models.Result
 import com.boonapps.repos.models.data
@@ -29,6 +30,9 @@ class RepoViewModelTest {
     @Mock
     private lateinit var githubService: GithubService
 
+    @Mock
+    private lateinit var dao: RepoDao
+
     private lateinit var repoRepository: RepoRepository
     private lateinit var repoViewModel: RepoViewModel
 
@@ -37,7 +41,7 @@ class RepoViewModelTest {
     fun setup() {
         MockitoAnnotations.initMocks(this)
         repoRepository =
-            RepoRepository(githubService, coroutineRule.testDispatcher)
+            RepoRepository(githubService, dao, coroutineRule.testDispatcher)
         repoViewModel = RepoViewModel(repoRepository)
     }
 
@@ -96,8 +100,7 @@ class RepoViewModelTest {
         val owner1 =
             Repo.Owner(
                 "wenyan-lang",
-                "https://avatars.githubusercontent.com/u/59635288?v=4"
-            )
+                "https://avatars.githubusercontent.com/u/59635288?v=4", null)
 
         val repo1 =
             Repo(
@@ -113,8 +116,7 @@ class RepoViewModelTest {
         val owner2 =
             Repo.Owner(
                 "go-delve",
-                "https://avatars.githubusercontent.com/u/19232073?v=4"
-            )
+                "https://avatars.githubusercontent.com/u/19232073?v=4", null)
 
         val repo2 =
             Repo(
